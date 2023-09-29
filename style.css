@@ -15,6 +15,9 @@ body {
   height: 50px;
   background-size: cover;
   display: inline-block;
+  position: absolute;
+  left: 50%; /* Center the character horizontally */
+  transform: translateX(-50%); /* Center the character using translateX */
 }
 
 .hidden {

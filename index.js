@@ -6,14 +6,18 @@ const scoreDisplay = document.getElementById("score");
 
 let score = 0;
 let selectedCharacter = "kiki"; // Initialize with the default character
+const character = document.getElementById(`character-${selectedCharacter}`);
 
 // Move the character left or right based on arrow key input
-
 document.addEventListener("keydown", function (event) {
   if (event.key === "ArrowLeft" || event.key === "Left") {
     moveCharacter("left");
   } else if (event.key === "ArrowRight" || event.key === "Right") {
     moveCharacter("right");
+  } else if (event.key === "ArrowUp" || event.key === "Up") {
+    moveCharacter("up");
+  } else if (event.key === "ArrowDown" || event.key === "Down") {
+    moveCharacter("down");
   }
 });
 
@@ -21,20 +25,29 @@ document.addEventListener("keydown", function (event) {
 function moveCharacter(direction) {
   const character = document.getElementById(`character-${selectedCharacter}`);
   const characterStyle = getComputedStyle(character);
-  const characterPosition = parseFloat(characterStyle.left);
+  const characterPositionX = parseFloat(characterStyle.left);
+  const characterPositionY = parseFloat(characterStyle.top);
   const containerWidth = parseFloat(getComputedStyle(gameContainer).width);
+  const containerHeight = parseFloat(getComputedStyle(gameContainer).height);
   const characterWidth = parseFloat(characterStyle.width);
+  const characterHeight = parseFloat(characterStyle.height);
 
-  if (direction === "left" && characterPosition > 0) {
-    character.style.left = characterPosition - 10 + "px";
+  if (direction === "left" && characterPositionX > 0) {
+    character.style.left = characterPositionX - 10 + "px";
   } else if (
     direction === "right" &&
-    characterPosition + characterWidth < containerWidth
+    characterPositionX + characterWidth < containerWidth
   ) {
-    character.style.left = characterPosition + 10 + "px";
+    character.style.left = characterPositionX + 10 + "px";
+  } else if (direction === "up" && characterPositionY > 0) {
+    character.style.top = characterPositionY - 10 + "px";
+  } else if (
+    direction === "down" &&
+    characterPositionY + characterHeight < containerHeight
+  ) {
+    character.style.top = characterPositionY + 10 + "px";
   }
 }
-
 // Randomize the positions of collectibles and obstacles
 function randomPosition() {
   return Math.floor(Math.random() * 70) + 10;
