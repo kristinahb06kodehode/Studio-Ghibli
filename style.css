@@ -4,6 +4,10 @@ body {
   background-color: #a8e6cf;
 }
 
+h1 {
+  text-align: center;
+}
+
 #game-container {
   width: 100%;
   height: 100vh;
