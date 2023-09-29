@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Garden Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="character-selection">
+            <label>
+                <input type="radio" name="character" value="kiki" checked>
+                Kiki
+            </label>
+            <label>
+                <input type="radio" name="character" value="totoro">
+                Totoro
+            </label>
+            <label>
+                <input type="radio" name="character" value="noface">
+                No-Face
+            </label>
+        </div>
+        <div id="character-container">
+            <!-- Character Display -->
+            <div id="character-kiki" class="character"></div>
+            <div id="character-totoro" class="character hidden"></div>
+            <div id="character-noface" class="character hidden"></div>
+        </div>
+        <!-- collectibles here -->
+        <div class="collectible">
+            <img src="./images/soot.gif" alt="">
+        </div>
+        <div class="collectible">
+            <img src="./images/soot.gif" alt="">
+        </div>
+        <div class="collectible">
+            <img src="./images/soot.gif" alt="">
+        </div>
+
+        <!-- obstacles here -->
+        <div class="obstacle">
+            <img src="./images/calicifer.gif" alt="">
+        </div>
+        <div class="obstacle">
+            <img src="./images/calicifer.gif" alt="">
+        </div>
+        <div class="obstacle">
+            <img src="./images/calicifer.gif" alt="">
+        </div>
+
+        <!-- Score Display -->
+        <div id="score">Score: 0</div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
